@@ -1,0 +1,12 @@
+Дарова родненький. Короче сделай основу landing на тему "Социальная инженерия: как не стать жертвой" ток отдели отдельно index.html и style.css
+
+Добавь простой тест для закрепления матриала.
+
+<section>
+        <div class="container test__container">
+            <h1>Пример из жизни</h1>
+            <iframe src="https://vkvideo.ru/video_ext.php?oid=-211656093&id=456239053&hash=fdef84775cc8012d&hd=2" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+
+        </div>
+    </section> 
+смотри я сделал видеоплейер я такой крутой а теперь оформи мне дизайн под него

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Безопасный Wi-Fi: мифы и реальность</title>
+    <meta
+      name="description"
+      content="Развенчиваем мифы о безопасности Wi-Fi и даём практические советы по защите."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        if (saved === "dark" || (!saved && prefersDark)) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ===== ШАПКА ===== -->
+    <header class="header">
+      <div class="container header__inner">
+        <a href="#home" class="logo">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 18h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a10 10 0 0 1 14 0M2 7.5a15 15 0 0 1 20 0"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>Wi-Fi Safety</span>
+        </a>
+
+        <nav class="nav" id="nav">
+          <a href="#myths" class="nav__link">Мифы</a>
+          <a href="#advice" class="nav__link">Советы</a>
+          <a href="#quiz" class="nav__link">Тест</a>
+          <a href="#resources" class="nav__link">Ресурсы</a>
+        </nav>
+
+        <div class="header__actions">
+          <!-- ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ -->
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Переключить тему"
+          >
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button class="burger" id="burger" aria-label="Меню">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== ГЕРОЙ ===== -->
+    <section class="hero" id="home">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1 class="hero__title">
+            Безопасный Wi-Fi:
+            <span class="accent">мифы и реальность</span>
+          </h1>
+          <p class="hero__subtitle">
+            «У меня сложный пароль — меня не взломают». «Скрыл SSID — меня не
+            найдут». «В кафе есть пароль — значит, безопасно». Знакомо?
+          </p>
+          <p class="hero__subtitle">
+            Каждый день миллионы людей верят в эти мифы — и теряют данные,
+            деньги и личную информацию. Этот сайт — о том, как всё обстоит на
+            самом деле.
+          </p>
+          <div class="hero__buttons">
+            <a href="#myths" class="btn btn--primary">Развенчать мифы</a>
+            <a href="#quiz" class="btn btn--ghost">Пройти тест</a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#06b6d4" />
+              </linearGradient>
+            </defs>
+            <circle
+              cx="200"
+              cy="200"
+              r="180"
+              fill="url(#grad1)"
+              opacity="0.1"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="130"
+              fill="url(#grad1)"
+              opacity="0.15"
+            />
+            <circle cx="200" cy="200" r="80" fill="url(#grad1)" opacity="0.2" />
+            <line
+              x1="150"
+              y1="180"
+              x2="120"
+              y2="120"
+              stroke="currentColor"
+              stroke-width="6"
+              stroke-linecap="round"
+              class="hero-svg-line"
+            />
+            <line
+              x1="250"
+              y1="180"
+              x2="280"
+              y2="120"
+              stroke="currentColor"
+              stroke-width="6"
+              stroke-linecap="round"
+              class="hero-svg-line"
+            />
+            <circle cx="120" cy="120" r="8" fill="#2563eb" />
+            <circle cx="280" cy="120" r="8" fill="#2563eb" />
+            <rect
+              x="120"
+              y="180"
+              width="160"
+              height="90"
+              rx="12"
+              fill="#1e293b"
+            />
+            <rect
+              x="130"
+              y="190"
+              width="140"
+              height="70"
+              rx="8"
+              fill="#0f172a"
+            />
+            <circle cx="150" cy="225" r="5" fill="#22c55e" />
+            <circle cx="170" cy="225" r="5" fill="#22c55e" />
+            <circle cx="190" cy="225" r="5" fill="#facc15" />
+            <circle cx="210" cy="225" r="5" fill="#22c55e" />
+            <circle cx="230" cy="225" r="5" fill="#22c55e" />
+            <rect
+              x="215"
+              y="290"
+              width="70"
+              height="60"
+              rx="8"
+              fill="#2563eb"
+            />
+            <path
+              d="M230 290 v-15 a20 20 0 0 1 40 0 v15"
+              stroke="#2563eb"
+              stroke-width="10"
+              fill="none"
+            />
+            <circle cx="250" cy="315" r="6" fill="#fff" />
+            <rect x="247" y="315" width="6" height="15" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== МИФЫ ===== -->
+    <section class="section" id="myths">
+      <div class="container">
+        <h2 class="section__title">Мифы и реальность</h2>
+        <p class="section__subtitle">
+          Нажмите на карточку, чтобы увидеть правду
+        </p>
+        <div class="myths-grid" id="mythsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== СОВЕТЫ ===== -->
+    <section class="section section--alt" id="advice">
+      <div class="container">
+        <h2 class="section__title">Практические советы</h2>
+        <p class="section__subtitle">Что делать, чтобы защитить себя</p>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="home">🏠 Для дома</button>
+          <button class="tab" data-tab="public">☕ Публичные сети</button>
+          <button class="tab" data-tab="business">🏢 Для бизнеса</button>
+        </div>
+
+        <div class="tab-content active" id="home">
+          <ul class="advice-list">
+            <li>Смените пароль по умолчанию на роутере</li>
+            <li>
+              Используйте шифрование <strong>WPA2</strong> или
+              <strong>WPA3</strong>
+            </li>
+            <li>Отключите функцию <strong>WPS</strong></li>
+            <li>Регулярно обновляйте прошивку роутера</li>
+            <li>
+              Создайте отдельную <strong>гостевую сеть</strong> для гостей
+            </li>
+            <li>Проверяйте список подключённых устройств</li>
+          </ul>
+        </div>
+
+        <div class="tab-content" id="public">
+          <ul class="advice-list">
+            <li>Не заходите в банковские приложения через публичный Wi-Fi</li>
+            <li>Используйте <strong>VPN</strong></li>
+            <li>Отключите автоматическое подключение к открытым сетям</li>
+            <li>Проверяйте имя сети перед подключением</li>
+            <li>Заблокируйте передачу файлов по локальной сети</li>
+          </ul>
+        </div>
+
+        <div class="tab-content" id="business">
+          <ul class="advice-list">
+            <li>Отдельная сеть для гостей и клиентов</li>
+            <li>Изоляция клиентов друг от друга (Client Isolation)</li>
+            <li>Портал авторизации с логином/паролем</li>
+            <li>Логирование подключений и событий</li>
+            <li>Регулярная смена паролей</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ТЕСТ ===== -->
+    <section class="section" id="quiz">
+      <div class="container">
+        <h2 class="section__title">Проверьте свои знания</h2>
+        <p class="section__subtitle">
+          5 вопросов — узнайте, насколько вы защищены
+        </p>
+
+        <div class="quiz" id="quizBox">
+          <div class="quiz__progress">
+            <div class="quiz__progress-bar" id="progressBar"></div>
+          </div>
+          <p class="quiz__counter" id="quizCounter">Вопрос 1 из 5</p>
+          <h3 class="quiz__question" id="quizQuestion">Загрузка...</h3>
+          <div class="quiz__answers" id="quizAnswers"></div>
+          <button class="btn btn--primary quiz__next" id="quizNext" disabled>
+            Далее
+          </button>
+        </div>
+
+        <div class="quiz-result" id="quizResult" style="display: none">
+          <h3>Ваш результат</h3>
+          <p class="quiz-result__score" id="resultScore">0 / 5</p>
+          <p class="quiz-result__text" id="resultText"></p>
+          <button class="btn btn--primary" id="quizRestart">
+            Пройти заново
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== РЕСУРСЫ ===== -->
+    <section class="section section--alt" id="resources">
+      <div class="container">
+        <h2 class="section__title">Полезные ресурсы</h2>
+        <div class="resources-grid">
+          <a href="#" class="resource-card">
+            <div class="resource-card__icon">🔒</div>
+            <h4>Настройка роутера</h4>
+            <p>Пошаговые инструкции для популярных моделей</p>
+          </a>
+          <a href="#" class="resource-card">
+            <div class="resource-card__icon">🛡️</div>
+            <h4>VPN-сервисы</h4>
+            <p>Как выбрать надёжный VPN</p>
+          </a>
+          <a href="#" class="resource-card">
+            <div class="resource-card__icon">📚</div>
+            <h4>Статьи о кибербезопасности</h4>
+            <p>Полезные материалы для углублённого изучения</p>
+          </a>
+          <a href="#" class="resource-card">
+            <div class="resource-card__icon">📞</div>
+            <h4>Куда обратиться</h4>
+            <p>Если вы столкнулись с мошенничеством</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 Образовательный проект о безопасности в сети.</p>
+        <p class="footer__small">IT-cube Камчатка. Горный Артём</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

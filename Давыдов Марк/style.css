@@ -1,0 +1,360 @@
+/* ===== Базовая сброска ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue-deep: #0b4f8a;
+    --blue: #1e73be;
+    --blue-light: #e8f2fb;
+    --blue-soft: #f4f9fe;
+    --blue-border: #cfe3f5;
+    --text: #22303c;
+    --text-muted: #55636f;
+    --white: #ffffff;
+    --shadow: 0 6px 20px rgba(30, 115, 190, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--white);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Контейнер ===== */
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== Шапка ===== */
+.hero {
+    background: linear-gradient(180deg, var(--blue-soft) 0%, var(--white) 100%);
+    border-bottom: 1px solid var(--blue-border);
+    padding: 56px 0 40px;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue-deep);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    border: 1px solid var(--blue-border);
+}
+
+.hero h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+    color: var(--blue-deep);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.lead {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+}
+
+.lead strong {
+    color: var(--blue);
+}
+
+/* ===== Карточки-секции ===== */
+main.container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--blue-border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 26px;
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    font-size: 1.45rem;
+    color: var(--blue-deep);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--blue-light);
+    font-weight: 700;
+}
+
+.card h3 {
+    font-size: 1.15rem;
+    color: var(--blue);
+    margin-bottom: 10px;
+    margin-top: 18px;
+    font-weight: 600;
+}
+
+.card h3.mt {
+    margin-top: 24px;
+}
+
+.card p {
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.card ul,
+.card ol {
+    margin: 12px 0 16px 22px;
+}
+
+.card li {
+    margin-bottom: 8px;
+}
+
+.card strong {
+    color: var(--blue-deep);
+}
+
+/* ===== Сетка подкарточек ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 8px;
+}
+
+.subcard {
+    background: var(--blue-soft);
+    border: 1px solid var(--blue-border);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.subcard h3 {
+    margin-top: 0;
+}
+
+.subcard p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Список технологий ===== */
+.tech-list li {
+    margin-bottom: 12px;
+}
+
+/* ===== Заметка ===== */
+.note {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    padding: 14px 18px;
+    border-radius: 8px;
+    color: var(--text);
+    margin-top: 16px;
+}
+
+/* ===== Шаги ===== */
+.steps {
+    counter-reset: step;
+    list-style: none;
+    margin-left: 0;
+}
+
+.steps li {
+    position: relative;
+    padding: 14px 16px 14px 58px;
+    background: var(--blue-soft);
+    border: 1px solid var(--blue-border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* ===== FAQ ===== */
+.faq {
+    background: var(--blue-soft);
+    border: 1px solid var(--blue-border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    transition: background 0.2s ease;
+}
+
+.faq[open] {
+    background: var(--blue-light);
+}
+
+.faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--blue-deep);
+    list-style: none;
+    position: relative;
+    padding-right: 28px;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--blue);
+    transition: transform 0.2s ease;
+}
+
+.faq[open] summary::after {
+    content: "−";
+}
+
+.faq p {
+    margin-top: 10px;
+    color: var(--text-muted);
+}
+
+/* ===== Итоги ===== */
+.conclusion {
+    background: var(--blue-light);
+    border-color: var(--blue);
+}
+
+.conclusion h2 {
+    border-bottom-color: var(--blue);
+}
+
+/* ===== Футер ===== */
+.footer {
+    background: var(--blue-soft);
+    border-top: 1px solid var(--blue-border);
+    padding: 22px 0;
+    text-align: center;
+}
+
+.footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ===== Адаптивность ===== */
+
+/* Планшеты */
+@media (max-width: 820px) {
+    .hero {
+        padding: 44px 0 32px;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .card {
+        padding: 24px;
+    }
+}
+
+/* Мобильные */
+@media (max-width: 640px) {
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding: 34px 0 26px;
+    }
+
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 20px 18px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+
+    .card h3 {
+        font-size: 1.05rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps li {
+        padding: 12px 14px 12px 52px;
+    }
+
+    .steps li::before {
+        left: 12px;
+        width: 26px;
+        height: 26px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Очень узкие экраны */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 1.25rem;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+    }
+
+    .badge {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+}

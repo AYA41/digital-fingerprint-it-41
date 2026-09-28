@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Социальная инженерия: как не стать жертвой</title>
+    <meta
+      name="description"
+      content="Что такое социальная инженерия, какие приёмы используют мошенники и как защитить себя и близких."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ШАПКА -->
+    <header class="header">
+      <div class="container header__container">
+        <a href="#" class="logo">
+          <span class="logo__icon">🛡️</span>
+          <span
+            >Межрегиональный конкурс
+            <span class="logo__accent">«Цифровой след»</span></span
+          >
+        </a>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li><a href="#what" class="nav__link">Что это</a></li>
+            <li><a href="#tricks" class="nav__link">Приёмы</a></li>
+            <li><a href="#rules" class="nav__link">Правила</a></li>
+            <li><a href="#test" class="nav__link">Проверка</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero__container">
+          <div class="hero__content">
+            <span class="hero__badge">⚠️ Кибербезопасность</span>
+            <h1 class="hero__title">
+              Социальная инженерия:<br />
+              <span class="highlight">как не стать жертвой</span>
+            </h1>
+            <p class="hero__text">
+              Мошенники не взламывают серверы — они взламывают людей. Узнай, как
+              распознать манипуляцию и защитить свои данные, деньги и нервы.
+            </p>
+            <div class="hero__actions">
+              <a href="#rules" class="btn btn--primary">Изучить правила</a>
+              <a href="#test" class="btn btn--ghost">Пройти тест</a>
+            </div>
+            <div class="hero__stats">
+              <div class="stat">
+                <span class="stat__number">91%</span>
+                <span class="stat__label"
+                  >атак начинается с письма или звонка</span
+                >
+              </div>
+              <div class="stat">
+                <span class="stat__number">$4.9M</span>
+                <span class="stat__label">средний ущерб от утечки данных</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="terminal">
+              <div class="terminal__bar">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
+                <span class="terminal__title">incoming_call.log</span>
+              </div>
+              <div class="terminal__body">
+                <p>
+                  <span class="term-green">[10:42]</span> Звонок: +7 (XXX)
+                  XXX-XX-XX
+                </p>
+                <p>
+                  <span class="term-yellow">[10:42]</span> "Здравствуйте, я из
+                  службы безопасности банка..."
+                </p>
+                <p>
+                  <span class="term-green">[10:43]</span> Запрос: код из СМС
+                </p>
+                <p>
+                  <span class="term-red">[10:43]</span> ⛔ ОБНАРУЖЕНА
+                  МАНИПУЛЯЦИЯ
+                </p>
+                <p>
+                  <span class="term-green">[10:43]</span> ✅ Вызов завершён.
+                  Данные защищены.
+                </p>
+                <p class="term-cursor">_</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ЧТО ЭТО -->
+      <section id="what" class="section">
+        <div class="container">
+          <h2 class="section-title">Что такое социальная инженерия?</h2>
+          <p class="section-subtitle">
+            Это метод психологического воздействия, при котором злоумышленник
+            выманивает конфиденциальную информацию, заставляя человека
+            добровольно её выдать.
+          </p>
+
+          <div class="cards">
+            <article class="card">
+              <div class="card__icon">🎭</div>
+              <h3 class="card__title">Манипуляция, а не взлом</h3>
+              <p class="card__text">
+                Жертва сама отдаёт пароли, коды и деньги, потому что ей создали
+                нужные условия: страх, срочность, доверие к «авторитету».
+              </p>
+            </article>
+            <article class="card">
+              <div class="card__icon">🎯</div>
+              <h3 class="card__title">Цель — человек</h3>
+              <p class="card__text">
+                Атакуют не сервер, а сотрудника, клиента банка, бухгалтера,
+                пенсионера — любого, у кого есть доступ к ценной информации.
+              </p>
+            </article>
+            <article class="card">
+              <div class="card__icon">📡</div>
+              <h3 class="card__title">Любой канал связи</h3>
+              <p class="card__text">
+                Телефон, email, мессенджеры, соцсети, SMS, даже живое общение у
+                банкомата — всё используется как инструмент атаки.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРИЁМЫ -->
+      <section id="tricks" class="section section--alt">
+        <div class="container">
+          <h2 class="section-title">Топ-6 приёмов мошенников</h2>
+          <div class="tricks">
+            <div class="trick">
+              <span class="trick__num">01</span>
+              <div>
+                <h3 class="trick__title">«Служба безопасности банка»</h3>
+                <p class="trick__text">
+                  Звонят якобы из банка и сообщают о подозрительной операции.
+                  Просят «отменить перевод», назвав код из СМС.
+                </p>
+              </div>
+            </div>
+            <div class="trick">
+              <span class="trick__num">02</span>
+              <div>
+                <h3 class="trick__title">Срочность и паника</h3>
+                <p class="trick__text">
+                  «Ваш аккаунт взломают через 5 минут!» — заставляют действовать
+                  быстро, не думая.
+                </p>
+              </div>
+            </div>
+            <div class="trick">
+              <span class="trick__num">03</span>
+              <div>
+                <h3 class="trick__title">Поддельные сайты и ссылки</h3>
+                <p class="trick__text">
+                  Копия известного сервиса, где вы вводите логин и пароль.
+                  Отличить можно только по адресу.
+                </p>
+              </div>
+            </div>
+            <div class="trick">
+              <span class="trick__num">04</span>
+              <div>
+                <h3 class="trick__title">Приманка выгодой</h3>
+                <p class="trick__text">
+                  «Вы выиграли iPhone! Оплатите только доставку» — вы платите,
+                  но ничего не получаете.
+                </p>
+              </div>
+            </div>
+            <div class="trick">
+              <span class="trick__num">05</span>
+              <div>
+                <h3 class="trick__title">Выдача себя за знакомого</h3>
+                <p class="trick__text">
+                  Взломанный аккаунт друга просит в долг. Проверьте голосом — не
+                  пишите.
+                </p>
+              </div>
+            </div>
+            <div class="trick">
+              <span class="trick__num">06</span>
+              <div>
+                <h3 class="trick__title">«Служба поддержки» в мессенджере</h3>
+                <p class="trick__text">
+                  Пишут с фейкового аккаунта, предлагают «помочь» и просят
+                  данные карты.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРАВИЛА -->
+      <section id="rules" class="section">
+        <div class="container">
+          <h2 class="section-title">7 правил защиты</h2>
+          <div class="rules">
+            <div class="rule">
+              <span class="rule__check">✔</span>
+              <p>
+                <strong>Никому</strong> не сообщайте коды из СМС, CVV и пароли.
+                Даже «сотруднику банка».
+              </p>
+            </div>
+            <div class="rule">
+              <span class="rule__check">✔</span>
+              <p>
+                Сбросьте звонок и <strong>перезвоните сами</strong> по
+                официальному номеру с карты или сайта.
+              </p>
+            </div>
+            <div class="rule">
+              <span class="rule__check">✔</span>
+              <p>
+                Проверяйте адрес сайта: одна буква или дефис вместо точки — уже
+                подделка.
+              </p>
+            </div>
+            <div class="rule">
+              <span class="rule__check">✔</span>
+              <p>
+                Включите <strong>двухфакторную аутентификацию</strong> везде,
+                где это возможно.
+              </p>
+            </div>
+            <div class="rule">
+              <span class="rule__check">✔</span>
+              <p>
+                Не переходите по ссылкам из подозрительных писем и сообщений —
+                откройте сервис вручную.
+              </p>
+            </div>
+            <div class="rule">
+              <span class="rule__check">✔</span>
+              <p>
+                Если просят «срочно» — это <strong>красный флаг</strong>.
+                Возьмите паузу и проверьте информацию.
+              </p>
+            </div>
+            <div class="rule">
+              <span class="rule__check">✔</span>
+              <p>
+                Предупредите близких, особенно пожилых родственников. Расскажите
+                им о схемах.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ТЕСТ -->
+      <section id="test" class="section section--alt">
+        <div class="container test__container">
+          <h2 class="section-title">Проверь себя</h2>
+          <p class="section-subtitle">
+            Ответь на 3 вопроса — узнаешь, насколько ты устойчив к манипуляциям.
+          </p>
+
+          <form class="quiz" id="quiz">
+            <div class="quiz__question" data-correct="b">
+              <p class="quiz__text">
+                1. Звонит «сотрудник банка» и просит код из СМС. Что делать?
+              </p>
+              <label class="quiz__option"
+                ><input type="radio" name="q1" value="a" />
+                <span>Назвать код, ведь это банк</span></label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q1" value="b" />
+                <span
+                  >Сбросить и перезвонить в банк по официальному номеру</span
+                ></label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q1" value="c" />
+                <span>Назвать только последние 4 цифры</span></label
+              >
+            </div>
+
+            <div class="quiz__question" data-correct="a">
+              <p class="quiz__text">
+                2. Друг в мессенджере просит срочно занять денег. Как проверить?
+              </p>
+              <label class="quiz__option"
+                ><input type="radio" name="q2" value="a" />
+                <span>Позвонить ему голосом и уточнить</span></label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q2" value="b" />
+                <span>Сразу перевести — друг же</span></label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q2" value="c" />
+                <span>Написать «ок» и ждать</span></label
+              >
+            </div>
+
+            <div class="quiz__question" data-correct="c">
+              <p class="quiz__text">
+                3. Пришло письмо «Ваш аккаунт заблокирован, перейдите по
+                ссылке». Что делать?
+              </p>
+              <label class="quiz__option"
+                ><input type="radio" name="q3" value="a" />
+                <span>Перейти по ссылке и ввести пароль</span></label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q3" value="b" />
+                <span>Ответить на письмо с вопросами</span></label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q3" value="c" />
+                <span
+                  >Открыть сайт вручную и проверить статус аккаунта</span
+                ></label
+              >
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              Проверить результат
+            </button>
+            <p class="quiz__result" id="quizResult"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ВИДЕО: ПРИМЕР ИЗ ЖИЗНИ -->
+      <section class="video section">
+        <div class="container">
+          <h2 class="section-title">Пример из жизни</h2>
+          <p class="section-subtitle">
+            Реальная история, которая показывает, как работает социальная
+            инженерия на практике.
+          </p>
+
+          <div class="video__wrapper">
+            <div class="video__glow"></div>
+            <div class="video__frame">
+              <iframe
+                src="https://vkvideo.ru/video_ext.php?oid=-211656093&id=456239053&hash=fdef84775cc8012d&hd=2"
+                width="853"
+                height="480"
+                allow="
+                  autoplay;
+                  encrypted-media;
+                  fullscreen;
+                  picture-in-picture;
+                  screen-wake-lock;
+                "
+                frameborder="0"
+                allowfullscreen
+                title="Пример социальной инженерии"
+              >
+              </iframe>
+            </div>
+
+            <div class="video__badge">
+              <span class="video__badge-dot"></span>
+              Запись разговора
+            </div>
+          </div>
+
+          <div class="video__info">
+            <div class="video__info-item">
+              <span class="video__info-icon">🎙️</span>
+              <div>
+                <strong>Реальный звонок</strong>
+                <p>Мошенник представляется сотрудником банка</p>
+              </div>
+            </div>
+            <div class="video__info-item">
+              <span class="video__info-icon">⏱️</span>
+              <div>
+                <strong>2–3 минуты</strong>
+                <p>Столько нужно, чтобы обмануть жертву</p>
+              </div>
+            </div>
+            <div class="video__info-item">
+              <span class="video__info-icon">🛡️</span>
+              <div>
+                <strong>Разбор схемы</strong>
+                <p>Смотри, чтобы распознать в следующий раз</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container cta__container">
+          <h2 class="cta__title">Знание — лучшая защита</h2>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__container">
+        <p>© 2026 Межрегиональный конкурс «Цифровой след»</p>
+        <p class="footer__note">
+          Материал носит информационный характер. Все совпадения с реальными
+          схемами — не случайны.
+        </p>
+        <p>Работу выполнил: Пущин Степан</p>
+        <p>
+          КГБУДО «Камчатский центр детского и юношеского технического
+          творчества»
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Простой тест
+      const quiz = document.getElementById("quiz");
+      const result = document.getElementById("quizResult");
+
+      quiz.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const questions = quiz.querySelectorAll(".quiz__question");
+        let score = 0;
+
+        questions.forEach((q, i) => {
+          const correct = q.dataset.correct;
+          const selected = q.querySelector(`input[name="q${i + 1}"]:checked`);
+          if (selected && selected.value === correct) {
+            score++;
+          }
+        });
+
+        let message = "";
+        if (score === 3) {
+          message = `✅ ${score}/3 — Отлично! Ты устойчив к манипуляциям.`;
+        } else if (score === 2) {
+          message = `⚠️ ${score}/3 — Неплохо, но будь внимательнее.`;
+        } else {
+          message = `🚨 ${score}/3 — Срочно изучи правила защиты выше!`;
+        }
+        result.textContent = message;
+        result.classList.add("quiz__result--visible");
+      });
+    </script>
+  </body>
+</html>

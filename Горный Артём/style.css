@@ -1,0 +1,709 @@
+/* ===== БАЗА ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== СВЕТЛАЯ ТЕМА (по умолчанию) ===== */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --accent: #f97316;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --bg: #f8fafc;
+    --bg-alt: #eef2f7;
+    --card: #ffffff;
+    --card-alt: #f8fafc;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --hero-gradient: linear-gradient(135deg, #f0f9ff 0%, #eef2ff 100%);
+    --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    --shadow-lg: 0 10px 40px rgba(15, 23, 42, 0.12);
+    --footer-bg: #0f172a;
+    --footer-text: #cbd5e1;
+    --footer-muted: #64748b;
+    --radius: 16px;
+    --transition-theme: background-color 0.35s, color 0.35s, border-color 0.35s;
+}
+
+/* ===== ТЁМНАЯ ТЕМА ===== */
+[data-theme="dark"] {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --accent: #fb923c;
+    --danger: #f87171;
+    --success: #4ade80;
+    --bg: #0b1220;
+    --bg-alt: #0f172a;
+    --card: #111c33;
+    --card-alt: #0f172a;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: #1e293b;
+    --header-bg: rgba(11, 18, 32, 0.85);
+    --hero-gradient: linear-gradient(135deg, #0b1220 0%, #111c33 100%);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.55);
+    --footer-bg: #050810;
+    --footer-text: #94a3b8;
+    --footer-muted: #475569;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.35s, color 0.35s;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.accent { color: var(--primary); }
+
+/* ===== ШАПКА ===== */
+.header {
+    position: sticky;
+    top: 0;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    transition: var(--transition-theme);
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    gap: 16px;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.logo svg { color: var(--primary); }
+
+.nav {
+    display: flex;
+    gap: 28px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.nav__link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav__link:hover { color: var(--primary); }
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
+}
+
+.nav__link:hover::after { width: 100%; }
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
+.theme-toggle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: rotate(-8deg);
+}
+
+.theme-toggle__icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: opacity 0.3s, transform 0.4s;
+}
+
+.theme-toggle__icon--sun { opacity: 1; transform: rotate(0deg); }
+.theme-toggle__icon--moon { opacity: 0; transform: rotate(-90deg); }
+
+[data-theme="dark"] .theme-toggle__icon--sun { opacity: 0; transform: rotate(90deg); }
+[data-theme="dark"] .theme-toggle__icon--moon { opacity: 1; transform: rotate(0deg); }
+
+/* ===== БУРГЕР ===== */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.burger span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: 0.3s;
+}
+
+/* ===== ГЕРОЙ ===== */
+.hero {
+    padding: 80px 0 100px;
+    background: var(--hero-gradient);
+    overflow: hidden;
+    transition: background 0.35s;
+}
+
+.hero__inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero__title {
+    font-size: 48px;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.hero__buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.hero__image svg {
+    width: 100%;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+    color: var(--text);
+}
+
+/* В тёмной теме антенны роутера светлее */
+[data-theme="dark"] .hero-svg-line { stroke: #475569; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* ===== КНОПКИ ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.btn--primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn--primary:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--border);
+}
+
+.btn--ghost:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ===== СЕКЦИИ ===== */
+.section {
+    padding: 90px 0;
+    transition: background-color 0.35s;
+}
+
+.section--alt {
+    background: var(--bg-alt);
+}
+
+.section__title {
+    font-size: 36px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.section__subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 56px;
+    font-size: 17px;
+}
+
+/* ===== КАРТОЧКИ МИФОВ ===== */
+.myths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+.myth-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s, background-color 0.35s;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    color: var(--text);
+}
+
+.myth-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.myth-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.myth-card__badge--myth {
+    background: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+}
+
+.myth-card__badge--truth {
+    background: rgba(34, 197, 94, 0.12);
+    color: var(--success);
+}
+
+.myth-card__title {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.myth-card__text {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.myth-card__hint {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.myth-card.flipped {
+    border-color: var(--success);
+}
+
+/* В светлой теме — мягкий зелёный фон, в тёмной — тёмно-зелёный оттенок */
+.myth-card.flipped {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.06) 0%, var(--card) 100%);
+}
+
+.myth-card.flipped .myth-card__hint {
+    color: var(--success);
+}
+
+/* ===== ТАБЫ (СОВЕТЫ) ===== */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    background: var(--card);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s, background-color 0.35s;
+    font-family: inherit;
+}
+
+.tab:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.tab.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 36px;
+    box-shadow: var(--shadow);
+    transition: background-color 0.35s;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.advice-list {
+    list-style: none;
+}
+
+.advice-list li {
+    padding: 14px 0 14px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    font-size: 16px;
+}
+
+.advice-list li:last-child { border-bottom: none; }
+
+.advice-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 24px;
+    height: 24px;
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* ===== ТЕСТ ===== */
+.quiz {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    transition: background-color 0.35s;
+}
+
+.quiz__progress {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.quiz__progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--primary);
+    transition: width 0.4s;
+    border-radius: 3px;
+}
+
+.quiz__counter {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.quiz__question {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    line-height: 1.4;
+}
+
+.quiz__answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.answer {
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    text-align: left;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s, background-color 0.35s;
+    color: var(--text);
+}
+
+.answer:hover:not(:disabled) {
+    border-color: var(--primary);
+    background: rgba(37, 99, 235, 0.06);
+}
+
+.answer.correct {
+    border-color: var(--success);
+    background: rgba(34, 197, 94, 0.14);
+    color: var(--success);
+    font-weight: 600;
+}
+
+.answer.wrong {
+    border-color: var(--danger);
+    background: rgba(239, 68, 68, 0.14);
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.answer:disabled { cursor: default; }
+
+.quiz__next {
+    width: 100%;
+}
+
+.quiz-result {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 50px 40px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: background-color 0.35s;
+}
+
+.quiz-result h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.quiz-result__score {
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.quiz-result__text {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 32px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== РЕСУРСЫ ===== */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.resource-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: all 0.3s, background-color 0.35s;
+    text-align: center;
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.resource-card__icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.resource-card h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.resource-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ===== ПОДВАЛ ===== */
+.footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 0;
+    text-align: center;
+    transition: background-color 0.35s;
+}
+
+.footer__inner p { font-size: 14px; }
+
+.footer__small {
+    color: var(--footer-muted);
+    font-size: 12px !important;
+    margin-top: 8px;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 900px) {
+    .hero__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero__title { font-size: 36px; }
+    .hero__buttons { justify-content: center; }
+    .hero__image { max-width: 320px; margin: 0 auto; }
+
+    .section__title { font-size: 28px; }
+    .section { padding: 60px 0; }
+    .hero { padding: 50px 0 70px; }
+}
+
+@media (max-width: 700px) {
+    .nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--card);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-120%);
+        transition: transform 0.3s, background-color 0.35s;
+        box-shadow: var(--shadow);
+        margin: 0;
+    }
+
+    .nav.open { transform: translateY(0); }
+
+    .burger { display: flex; }
+
+    .myths-grid { grid-template-columns: 1fr; }
+
+    .tab-content, .quiz, .quiz-result { padding: 24px; }
+
+    .hero__title { font-size: 30px; }
+
+    .quiz-result__score { font-size: 48px; }
+}
